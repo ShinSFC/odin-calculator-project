@@ -1,0 +1,13 @@
+#container {
+    border: 1px solid black;
+    display: flex;
+    height: 400px;
+    width: 300px;
+}
+
+#display {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 16.66%;
+    width: 300px;
+}
