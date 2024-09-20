@@ -1,3 +1,17 @@
+// buttons layout
+
+// const createColumns = function() {
+//     const column = document.createElement("div");
+//     container.appendChild("column");
+//     column.style.border = "5px solid black";
+//     column.style.width = "25%";
+//     column.style.height = "100%";
+//     console.log('hello');
+// }
+
+// [1, 2, 3, 4].forEach(createColumns); 
+
+// math functions
 const add = function(num1, num2) {
     return num1 + num2;
 }
@@ -32,4 +46,4 @@ let operate = function(num1, num2, operator) {
     }
 };
 
-console.log(operate(4, 2, subtract));
+// console.log(operate(4, 2, subtract));
