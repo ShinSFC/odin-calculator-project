@@ -1,6 +1,10 @@
 // display 
 const display = document.querySelector("#display");
 
+// display variable
+let displayValue = '';  
+let operator = '';
+
 // number buttons function
 const numberButtons = document.querySelectorAll('.number-buttons');
 
@@ -11,15 +15,24 @@ numberButtons.forEach(button => {
     });
 });
 
-// display variable
-let displayValue = '';
-
 // clear button
 const clearButton = document.querySelector("#clear-button");
+
 clearButton.addEventListener('click', () => {
-    display.textContent = '';
+    display.textContent = '';   
     displayValue = display.textContent;
 });
+
+//operation button saved into a variable
+const operationButton = document.querySelectorAll(".operator-buttons");
+
+operationButton.forEach(button => {
+    button.addEventListener('click', () => {
+        operator = button.id.slice(3);
+        display.textContent = '';
+        displayValue = display.textContent;
+    })
+})
 
 // math functions
 const add = function(num1, num2) {
@@ -53,4 +66,3 @@ let operate = function(num1, num2, operator) {
 
 // console.log(operate(4, 2, subtract)); // operate function works
 
-// 
