@@ -7,16 +7,18 @@ const numberButtons = document.querySelectorAll('.number-buttons');
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         display.textContent += button.id.slice(3);
+        displayValue = display.textContent;
     });
 });
 
 // display variable
-let displayValue = display.textContent;
+let displayValue = '';
 
 // clear button
 const clearButton = document.querySelector("#clear-button");
 clearButton.addEventListener('click', () => {
     display.textContent = '';
+    displayValue = display.textContent;
 });
 
 // math functions
