@@ -1,59 +1,16 @@
 // display 
 const display = document.querySelector("#display");
-// display.textContent = "0123456789"; // tests display and it works
 
-// number buttons
-const oneButton = document.querySelector("#one-button");
-oneButton.addEventListener("click", () => {
-    display.textContent += '1';
+// number buttons function
+const numberButtons = document.querySelectorAll('.number-buttons');
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        display.textContent += button.id.slice(3);
+    });
 });
 
-const twoButton = document.querySelector("#two-button");
-twoButton.addEventListener("click", () => {
-    display.textContent += '2';
-});
-
-const threeButton = document.querySelector("#three-button");
-threeButton.addEventListener("click", () => {
-    display.textContent += '3';
-});
-
-const fourButton = document.querySelector("#four-button");
-fourButton.addEventListener("click", () => {
-    display.textContent += '4';
-});
-
-const fiveButton = document.querySelector("#five-button");
-fiveButton.addEventListener("click", () => {
-    display.textContent += '5';
-});
-
-const sixButton = document.querySelector("#six-button");
-sixButton.addEventListener("click", () => {
-    display.textContent += '6';
-});
-
-
-const sevenButton = document.querySelector("#seven-button");
-sevenButton.addEventListener("click", () => {
-    display.textContent += '7';
-});
-
-const eightButton = document.querySelector("#eight-button");
-eightButton.addEventListener("click", () => {
-    display.textContent += '8';
-});
-
-const nineButton = document.querySelector("#nine-button");
-nineButton.addEventListener("click", () => {
-    display.textContent += '9';
-});
-
-const zeroButton = document.querySelector("#zero-button");
-zeroButton.addEventListener("click", () => {
-    display.textContent += '0';
-});
-
+// display variable
 let displayValue = display.textContent;
 
 // clear button
