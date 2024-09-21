@@ -1,15 +1,5 @@
-// buttons layout
-
-// const createColumns = function() {
-//     const column = document.createElement("div");
-//     container.appendChild("column");
-//     column.style.border = "5px solid black";
-//     column.style.width = "25%";
-//     column.style.height = "100%";
-//     console.log('hello');
-// }
-
-// [1, 2, 3, 4].forEach(createColumns); 
+const display = document.querySelector("#display");
+display.textContent = "0123456789";
 
 // math functions
 const add = function(num1, num2) {
