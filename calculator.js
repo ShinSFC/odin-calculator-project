@@ -49,6 +49,7 @@ equalButton.addEventListener('click', () => {
     //console.log(num2); // these work
     //console.log(operator); // these work
     let result = operate(num1, num2, operator);
+    result = result.toString().slice(0, 10);
     display.textContent = result;
 });
 
