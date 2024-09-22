@@ -1,8 +1,10 @@
 // display 
 const display = document.querySelector("#display");
 
-// display variable
-let displayValue = '';  
+// number input variable and operator variable
+let num1 = '';
+let num2 = '';  
+
 let operator = '';
 
 // number buttons function
@@ -11,7 +13,11 @@ const numberButtons = document.querySelectorAll('.number-buttons');
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         display.textContent += button.id.slice(3);
-        displayValue = display.textContent;
+        if (operator == '') {           // until operator is clicked, numbers are concatenated to num1
+            num1 = display.textContent; // first number stored in variable num1
+        } else {
+            num2 = display.textContent; // second number stored in varible num2
+        }
     });
 });
 
@@ -19,18 +25,19 @@ numberButtons.forEach(button => {
 const clearButton = document.querySelector("#clear-button");
 
 clearButton.addEventListener('click', () => {
-    display.textContent = '';   
-    displayValue = display.textContent;
+    display.textContent = ''; 
+    num1 = '';
+    num2 = '';
+    operator = '';
 });
 
-//operation button saved into a variable
-const operationButton = document.querySelectorAll(".operator-buttons");
+// function to save operater button pressed into a variable and clear displayValue  
+const operatorButton = document.querySelectorAll(".operator-buttons");
 
-operationButton.forEach(button => {
+operatorButton.forEach(button => {
     button.addEventListener('click', () => {
         operator = button.id.slice(3);
         display.textContent = '';
-        displayValue = display.textContent;
     })
 })
 
