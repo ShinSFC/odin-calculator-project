@@ -1,11 +1,11 @@
 // display 
 const display = document.querySelector("#display");
 
-// number input variable and operator variable
+// number input, operator and operator button count variables
 let num1 = '';
 let num2 = '';  
-
 let operator = '';
+let opBtnCnt = 0;       // how many times the operator button was pressed
 
 // number buttons function
 // needs to clear display and then display second number when second number is pressed
@@ -39,6 +39,8 @@ const operatorButton = document.querySelectorAll(".operator-buttons");
 operatorButton.forEach(button => {
     button.addEventListener('click', () => {
         operator = button.id.slice(3);
+        opBtnCnt++;
+        console.log(`operator btn was pressed ${opBtnCnt}`);
         display.textContent = '';
     })
 }) 
@@ -46,8 +48,12 @@ operatorButton.forEach(button => {
 // equal button
 const equalButton = document.querySelector("#equal-button");
 
-equalButton.addEventListener('click', () => {   
+equalButton.addEventListener('click', () => {  
+    console.log(`num1 is ${num1}`);
+    console.log(`num2 is ${num2}`);
+    console.log(`operator is ${operator}`);
     let result = operate(num1, num2, operator);
+    console.log(`result is ${result}`);
     result = result.toString().slice(0, 10);
     display.textContent = result;
 });
@@ -73,8 +79,8 @@ const divide = function(num1, num2) {
 let operate = function(num1, num2, operator) {
     num1 = Number(num1);
     num2 = Number(num2);
-    console.log(num1);
-    console.log(num2);
+    // console.log(num1);
+    // console.log(num2);
     console.log(operator);
     if (operator == 'add') {
         return add(num1, num2);
