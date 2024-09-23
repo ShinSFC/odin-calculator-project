@@ -8,6 +8,7 @@ let num2 = '';
 let operator = '';
 
 // number buttons function
+// needs to clear display and then display second number when second number is pressed
 const numberButtons = document.querySelectorAll('.number-buttons');
 
 numberButtons.forEach(button => {
@@ -31,7 +32,8 @@ clearButton.addEventListener('click', () => {
     operator = '';
 });
 
-// function to save operater button pressed into a variable and clear displayValue  
+// function to save operater button pressed into a variable and clear display  
+// needs to switch to num2 instead of clearing display when pressed
 const operatorButton = document.querySelectorAll(".operator-buttons");
 
 operatorButton.forEach(button => {
@@ -39,15 +41,12 @@ operatorButton.forEach(button => {
         operator = button.id.slice(3);
         display.textContent = '';
     })
-})
+}) 
 
 // equal button
 const equalButton = document.querySelector("#equal-button");
 
 equalButton.addEventListener('click', () => {   
-    //console.log(num1); // these work
-    //console.log(num2); // these work
-    //console.log(operator); // these work
     let result = operate(num1, num2, operator);
     result = result.toString().slice(0, 10);
     display.textContent = result;
