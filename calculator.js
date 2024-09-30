@@ -1,17 +1,16 @@
 // display 
 const display = document.querySelector("#display");
 
-// number input, operator and operator button count variables
+// number input and button count variables
 let num1 = '';
 let num2 = '';  
 let operator = '';
 let numBtnCnt = 0;
-let opBtnCnt = 0;       // how many times the operator button was pressed
-let eqBtnCnt = 0;       // how many times the equal button was pressed ********************************************************************************
-let result = 0;         // change made here. declared this variable up here instead of in the equal button function ***********
+let opBtnCnt = 0;       
+let eqBtnCnt = 0;       
+let result = 0;         
 
 // number buttons function
-// needs to clear display and then display second number when second number is pressed
 const numberButtons = document.querySelectorAll('.number-buttons');
 
 numberButtons.forEach(button => {
@@ -23,11 +22,11 @@ numberButtons.forEach(button => {
             display.textContent = num1;
             console.log(`num1 is ${num1}`);
         } else if (opBtnCnt > 0) { 
-            num2 = '';
+            //num2 = '';
             num2 += button.id.slice(3);
             num2 = Number(num2);
             display.textContent = num2;
-            console.log(`num2 is ${num2}`);
+            console.log(`num2 is ${num2}`); //************num2 gets concatenated when more than 2 numbers in equation  
             result = operate(num1, num2, operator);
             result = result.toString().slice(0, 10);
         }
@@ -57,13 +56,13 @@ operatorButton.forEach(button => {
         console.log(`typeof num1 is ${typeof num1}`);
         console.log(`typeof num2 is ${typeof num2}`);
         if (eqBtnCnt == 0 && typeof num2 === 'number') { 
-            // result = operate(num1, num2, operator); 
             console.log(`result inside operator function is ${typeof result}: ${result}`);
             display.textContent = result;
             num1 = Number(result);
+            num2 = '';      // added this to prevent concatenation of num2 when more than 2 numbers in equation
         }      
         opBtnCnt++;
-        console.log(`opBtnCnt is ${opBtnCnt}`);
+        //console.log(`opBtnCnt is ${opBtnCnt}`);
     })
 }) 
 
@@ -71,7 +70,7 @@ operatorButton.forEach(button => {
 const equalButton = document.querySelector("#equal-button");
 
 equalButton.addEventListener('click', () => {  
-    result = operate(num1, num2, operator);         // made change here to remove keyword let and declare this variable above ***********
+    result = operate(num1, num2, operator);         
     eqBtnCnt++;
     console.log(`eqBtnCnt is ${eqBtnCnt}`);
     console.log(`num1 is ${num1}, num2 is ${num2}`);
@@ -79,8 +78,8 @@ equalButton.addEventListener('click', () => {
     result = result.toString().slice(0, 10);
     display.textContent = result;
     num1 = '';
-    num2 = '';                                    // change made here. added this counter *******************************************     // added this to verify counter  *************************************************
-    opBtnCnt = 0;                                   // change made here to reset opBtnCnt to 0 ***************************************
+    num2 = '';                                    
+    opBtnCnt = 0;                                   
 });
 
 // math functions
