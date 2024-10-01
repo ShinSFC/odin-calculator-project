@@ -16,13 +16,13 @@ const numberButtons = document.querySelectorAll('.number-buttons');
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         numBtnCnt++;
+        console.log(`numBtnCnt: ${numBtnCnt}`);
         if (opBtnCnt === 0) {           
             num1 += button.id.slice(3); 
             num1 = Number(num1);
             display.textContent = num1;
             console.log(`num1 is ${num1}`);
         } else if (opBtnCnt > 0) { 
-            //num2 = '';
             num2 += button.id.slice(3);
             num2 = Number(num2);
             display.textContent = num2;
@@ -82,7 +82,8 @@ equalButton.addEventListener('click', () => {
     display.textContent = result;
     num1 = '';       // changed this so num1 can retain result
     num2 = '';                                    
-    opBtnCnt = 0;                                   
+    opBtnCnt = 0; 
+    numBtnCnt = 0;                                  
 });
 
 // math functions
